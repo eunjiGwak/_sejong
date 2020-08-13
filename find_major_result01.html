@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나만의 학과찾기</title>
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ipsi.css">
+    <link rel="stylesheet" href="css/design.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+</head>
+<body>
+    <div id="header_find"><img src="images/sejong_header.jpg" alt=""></div>
+    <div id="wrap" class="find_major">
+        <div id="container_find">
+            <div id="verIpsi">
+                <div id="right"><img src="images/sejong_right.jpg" alt=""></div>
+                <div id="article">
+                    <div class="survey">
+                        <h3 class="top_title"><strong>나만의 학과보기</strong></h3>
+                        <div class="explain_box">
+                            <p class="exp_top">
+                                전공 역량 검사 하느라 애쓰셨습니다.<br/>
+                                스스로 생각하고 있던 내게 맞는 학과는<span>_____</span>이셨죠?
+                            </p>
+                            <p class="exp_mid">
+                                좀 전에 하신 전공 역량 검사 결과,<br/>
+                                1순위로 나타난 역량은 <span>_____</span>.<br/>
+                                2순위로 나타난 역량은 <span>_____</span>입니다.<br/>
+                            </p>
+                            <p class="exp_btm">
+                                그럼 이제 상세한 내용으로 나만의 학과를 확인해 보세요~
+                            </p>
+                        </div>
+                        <div class="total_graph">
+                            <section>
+                                <div class="pieID pie"></div>
+                                <ul class="pieID legend">
+                                    <li>
+                                        <em>역량1</em>
+                                        <span>60</span>
+                                    </li>
+                                    <li>
+                                        <em>역량2</em>
+                                        <span>8</span>
+                                    </li>
+                                    <li>
+                                        <em>역량3</em>
+                                        <span>12</span>
+                                    </li>
+                                    <li>
+                                        <em>역량4</em>
+                                        <span>13</span>
+                                    </li>
+                                    <li>
+                                        <em>역량5</em>
+                                        <span>17</span>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="find_btn">
+                            <a href="find_major_result02.html" class="btnC btn_newWin"><span>자세히 보기</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer_find"><img src="images/sejong_footer.jpg" alt=""></div>
+    <script>
+        function sliceSize(dataNum, dataTotal) {
+          return (dataNum / dataTotal) * 360;
+        }
+        function addSlice(sliceSize, pieElement, offset, sliceID, color) {
+          $(pieElement).append("<div class='slice "+sliceID+"'><span></span></div>");
+          var offset = offset - 1;
+          var sizeRotation = -179 + sliceSize;
+          $("."+sliceID).css({
+            "transform": "rotate("+offset+"deg) translate3d(0,0,0)"
+          });
+          $("."+sliceID+" span").css({
+            "transform"       : "rotate("+sizeRotation+"deg) translate3d(0,0,0)",
+            "background-color": color
+          });
+        }
+        function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+          var sliceID = "s"+dataCount+"-"+sliceCount;
+          var maxSize = 179;
+          if(sliceSize<=maxSize) {
+            addSlice(sliceSize, pieElement, offset, sliceID, color);
+          } else {
+            addSlice(maxSize, pieElement, offset, sliceID, color);
+            iterateSlices(sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+          }
+        }
+        function createPie(dataElement, pieElement) {
+          var listData = [];
+          $(dataElement+" span").each(function() {
+            listData.push(Number($(this).html()));
+          });
+          var listTotal = 0;
+          for(var i=0; i<listData.length; i++) {
+            listTotal += listData[i];
+          }
+          var offset = 0;
+          var color = [
+            "cornflowerblue", 
+            "olivedrab", 
+            "orange", 
+            "tomato", 
+            "crimson", 
+            "purple", 
+            "turquoise", 
+            "forestgreen", 
+            "navy", 
+            "gray"
+          ];
+          for(var i=0; i<listData.length; i++) {
+            var size = sliceSize(listData[i], listTotal);
+            iterateSlices(size, pieElement, offset, i, 0, color[i]);
+            $(dataElement+" li:nth-child("+(i+1)+")").css("border-color", color[i]);
+            offset += size;
+          }
+        }
+        createPie(".pieID.legend", ".pieID.pie");
+    </script>
+</body>
+</html>

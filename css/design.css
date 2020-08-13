@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@keyframes bake-pie {
+  from {
+    transform: rotate(0deg) translate3d(0,0,0);
+  }
+}
+
+table caption{text-indent:-9999em;font-size:0;width:0;height:0;}
+.tac{text-align:center !important;}
+.tal{text-align:left!important;}
+.tar{text-align:right !important;}
+.cf:after{content:'';display:block;clear:both;height:0;}
+
+#wrap.find_major{width:1080px;margin:auto;}
+
+#header_find{font-size:0;}
+
+#container_find{position:relative;margin:55px 0 110px;}
+#container_find:after{content:'';display:block;height:0;clear:both;}
+#right{float:right;}
+#article{float:left;width:825px;margin-right:40px;}
+
+.survey{width:100%;}
+.survey .top_title{}
+.survey .top_title img{display:block;width:200px;margin:auto;}
+.survey .top_title strong{display:block;width:100%;margin:20px 0 40px 0;text-align:center;font-size:28px;}
+.find_main{}
+.find_main > p{text-align:center;font-size:22px;font-weight:600;}
+.find_main .choice_box{width:500px;margin:20px auto;padding:20px 50px;border: 1px solid #cbcbcb;background: #f1f1f1;}
+.find_main .choice_box .select_box{text-align:center;padding:15px 0 0;}
+.explain_box{width:500px;margin:0 auto 20px;padding:20px 50px;border: 1px solid #cbcbcb;}
+.explain_box li{}
+.explain_box li:before{content:'·';padding:0 5px 0 0;}
+.explain_box p{text-align:center;margin-bottom:15px;}
+.explain_box p span{}
+.explain_box .exp_top{}
+.explain_box .exp_mid{}
+.explain_box .exp_btm{margin-bottom:0;font-weight:bold;}
+
+.level_txt{}
+.level_txt dt{display:inline-block;color:#787878;font-size:13px;}
+.level_txt dd{display:inline-block;padding-right:5px;color:#787878;font-size:13px;font-weight:600;}
+.table_box.lineTop_tbArea{margin:10px 0 40px;}
+.table_box table tbody tr td:first-child{text-align:center;}
+.table_box table tbody tr td input{}
+
+.rank_box{font-size: 0;margin-top: -30px;}
+.rank_box dt{display:inline-block;width:6%;margin-top:30px;font-size:17px;vertical-align:top;}
+.rank_box dd{display:inline-block;width:94%;margin-top:20px;padding:10px 15px;border:1px solid #cbcbcb;background:#f9f9f9;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size 15px;}
+.rank_box dd strong{display:block;}
+.rank_box dd ul{margin-top:10px;}
+.rank_box dd ul li{}
+
+.result_txt{margin:30px 0 40px;font-size:16px;}
+.find_btn.end{float:left;}
+.sns_share{float:right;padding:5px 12px;border:1px solid #cbcbcb;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-radius:7px;}
+.sns_share li{float:left;width:40px;height:40px;margin-left:12px;}
+.sns_share li a{display:block;width:40px;font-size:28px;}
+.sns_share li a img{width:100%;}
+
+/* graph */
+.total_graph{margin:40px 0;text-align:center;}
+.total_graph section{display:inline-block;}
+
+.pieID {display: inline-block;vertical-align: top;}
+.pie{height: 200px;width: 200px;position: relative;margin: 0 30px 30px 0;}
+.pie::before{content: "";display: block;position: absolute;z-index: 1;width: 100px;height: 100px;background: #EEE;border-radius: 50%;top: 50px;left: 50px;}
+.pie::after{content: "";display: block;width: 120px;height: 2px;background: rgba(0,0,0,0.1);border-radius: 50%;box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);margin: 220px auto;}
+.slice{position: absolute;width: 200px;height: 200px;clip: rect(0px, 200px, 200px, 100px);animation: bake-pie 1s;}
+.slice span{display: block;position: absolute;top: 0;left: 0;background-color: black;width: 200px;height: 200px;border-radius: 50%;clip: rect(0px, 200px, 200px, 100px);}
+.legend{list-style-type: none;padding: 0;margin: 0;background: #FFF;padding: 15px;font-size: 13px;box-shadow: 1px 1px 0 #DDD, 2px 2px 0 #BBB;}
+.legend li{width: 110px;height: 1.25em;margin-bottom: 0.7em;padding-left: 0.5em;border-left: 1.25em solid black;}
+.legend em{font-style: normal;}
+.legend span{float: right;display: inline-block;width: 30px;}
+
+/* button layout */
+.find_btn{margin-bottom:20px;font-size:0;text-align:center;}
+.find_btn a{display:inline-block;height:40px;line-height:40px;margin: auto;background:#bd2b56;color:#fff;font-size:15px;text-align:center;}
+.find_btn.ty01{}
+.find_btn.ty01 a{width:400px;}
+.find_btn.ty02{margin-left:-20px;}
+.find_btn.ty02 a{width:190px;margin-left:20px;}
